@@ -1,0 +1,13 @@
+@import 'libs/bootstrap-reboot.min';
+@import 'libs/fonts';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import 'base/variables';
+
+html {
+    font-family: 'Gilroy', sans-serif;
+}
+
+@import 'blocks/container';
+@import 'blocks/header';
+@import 'blocks/promo';
+
