@@ -90,12 +90,49 @@
 /*!************************!*\
   !*** ./src/js/main.js ***!
   \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/menu */ "./src/js/modules/menu.js");
 
 window.addEventListener('DOMContentLoaded', function () {
   'use strict';
+
+  Object(_modules_menu__WEBPACK_IMPORTED_MODULE_0__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/menu.js":
+/*!********************************!*\
+  !*** ./src/js/modules/menu.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function menu() {
+  var hamburger = document.querySelector('.hamburger'),
+      menuList = document.querySelector('.header__menu');
+  hamburger.addEventListener('click', function () {
+    menuList.classList.toggle('header__menu_active');
+    hamburger.classList.toggle('hamburger_close');
+  });
+
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    menuList.addEventListener('click', function (e) {
+      if (e.target === menuList) {
+        menuList.classList.toggle('header__menu_active');
+        hamburger.classList.toggle('hamburger_close');
+      }
+    });
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (menu);
 
 /***/ })
 
