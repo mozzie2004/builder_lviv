@@ -3,14 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 @import 'base/variables';
 
-html {
+* {
     font-family: 'Gilroy', sans-serif;
 }
 
 @import 'blocks/hamburger';
+@import 'blocks/subtitle';
 @import 'blocks/title';
 @import 'blocks/container';
 @import 'blocks/header';
 @import 'blocks/promo';
+@import 'blocks/about';
 @import 'base/media';
 

@@ -116,7 +116,8 @@ window.addEventListener('DOMContentLoaded', function () {
 __webpack_require__.r(__webpack_exports__);
 function menu() {
   var hamburger = document.querySelector('.hamburger'),
-      menuList = document.querySelector('.header__menu');
+      menuList = document.querySelector('.header__menu'),
+      contacts = document.querySelector('.header__contacts');
   hamburger.addEventListener('click', function () {
     menuList.classList.toggle('header__menu_active');
     hamburger.classList.toggle('hamburger_close');
@@ -130,6 +131,24 @@ function menu() {
       }
     });
   }
+
+  function changeMenuDark() {
+    if (window.pageYOffset > 170) {
+      contacts.classList.add('header__contacts_dark');
+      window.removeEventListener('scroll', changeMenuDark);
+      window.addEventListener('scroll', changeMenuBright);
+    }
+  }
+
+  function changeMenuBright() {
+    if (window.pageYOffset < 170) {
+      contacts.classList.remove('header__contacts_dark');
+      window.removeEventListener('scroll', changeMenuBright);
+      window.addEventListener('scroll', changeMenuDark);
+    }
+  }
+
+  window.addEventListener('scroll', changeMenuDark);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (menu);

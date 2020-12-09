@@ -21,13 +21,26 @@
             }
         }
     }
+
+    .about {
+        &__wrapper {
+            margin-left: 70px;
+        }
+        &__right {
+            padding-top: 150px;
+        }
+        &__descr {
+            font-size: 16px;
+        }
+    
+    }
 }
 
 @media (max-width: 992px) {
     .container {
         width: 720px;
     }
-    .title {
+    .subtitle {
         font-size: 36px;
     }
 
@@ -55,6 +68,28 @@
             &-text {
                 font-size: 14px;
             }
+        }
+    }
+
+    .about {
+        &__experience {
+            width: 150px;
+            height: 140px;
+            font-size: 22px;
+            line-height: 26px;
+        }
+        &__wrapper {
+            width: 400px;
+            margin-left: 40px;
+        }
+        &__span {
+            font-size: 50px;
+            margin-top: 0;
+            line-height: 60px;
+        }
+        &__right {
+            display: flex;
+            justify-content: center;
         }
     }
 }
@@ -114,6 +149,15 @@
             line-height: 18px;
         }
     }
+
+    .about {
+        &__right {
+            padding-top: 120px;
+        }
+        &__descr {
+            font-size: 14px;
+        }
+    }
 }
 
 @media (max-width: 576px) {
@@ -122,7 +166,7 @@
         padding: 0 10px;
     }
 
-    .title {
+    .subtitle {
         font-size: 28px;
         line-height: 40px;
         text-align: center;
@@ -169,5 +213,32 @@
                 font-size: 10px;
             }
         }   
+    }
+    
+
+    .about {
+        flex-direction: column;
+        &__right {
+            width: 100%;
+        }
+        &__left {
+            width: 100%;
+        }
+        &__descr {
+            font-size: 16px;
+        }
+        &__right {
+            padding-top: 50px;
+        }
+        &__experience {
+            width: 238px;
+            height: 220px;
+            font-size: 30px;
+            line-height: 42px;
+        }
+        &__span {
+            font-size: 70px;
+            line-height: 98px;
+        }
     }
 }
