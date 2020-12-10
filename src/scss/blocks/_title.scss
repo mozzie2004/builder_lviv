@@ -6,4 +6,7 @@
     text-transform: uppercase;
     color: $main-color;
     margin: 0;
+    &_center {
+        text-align: center;
+    }
 }

@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.min.css">
-	<title>Document</title>
+	<title>Builder Lviv</title>
 </head>
 
 <body>
@@ -26,11 +26,11 @@
 				<a href="#" class="header__logo">LOGO</a>
 				<nav class="header__menu">
 					<ul class="header__menu-list">
-						<li class="header__menu-item"><a href="#" class="header__menu-link">Про нас</a></li>
-						<li class="header__menu-item"><a href="#" class="header__menu-link">Відгуки</a></li>
+						<li class="header__menu-item"><a href="#about" class="header__menu-link">Про нас</a></li>
+						<li class="header__menu-item"><a href="#reviews" class="header__menu-link">Відгуки</a></li>
 						<li class="header__menu-item"><a href="#" class="header__menu-link">Ціни</a></li>
-						<li class="header__menu-item"><a href="#" class="header__menu-link">Наші роботи</a></li>
-						<li class="header__menu-item"><a href="#" class="header__menu-link">Контакти</a></li>
+						<li class="header__menu-item"><a href="#portfolio" class="header__menu-link">Наші роботи</a></li>
+						<li class="header__menu-item"><a href="#feedback" class="header__menu-link">Контакти</a></li>
 					</ul>
 				</nav>
 				<button class="header__btn">Замовити дзвінок</button>
@@ -77,7 +77,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="about">
+	<section id="about" class="about">
 		<div class="about__left">
 			<img src="img/about_bg.jpg" alt="assembling" class="about__img">
 			<div class="about__experience"><span class="about__span">10+</span>років<br>досвіду</div>
@@ -91,7 +91,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="work">
+	<section id="work" class="work">
 		<div class="work__header">
 			<h1 class="title">етапи роботи</h1>
 			<h2 class="subtitle">Як ми працюємо?</h2>
@@ -123,6 +123,72 @@
 			</li>
 		</ul>
 	</section>
+	<section id="portfolio" class="portfolio">
+		<h1 class="title title_center">портфоліо</h1>
+		<h2 class="subtitle subtitle_center subtitle_black">Наші роботи</h2>
+		<div class="portfolio__wrapper">
+			<div class="portfolio__proect">
+				<div class="portfolio__title">Назва проекта</div>
+				<div class="portfolio__descr">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum eros arcu, at aliquet tortor vestibulum ut. Quisque sed libero nec nulla pulvinar pharetra. Aliquam porttitor justo lorem, at rhoncus nulla condimentum vitae. Cras vitae aliquet quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus id quam nulla.</div>
+				<div class="portfolio__deadline">Термін ремонта:<span>21 день</span></div>
+				<div class="portfolio__square">Площа:<span>81м2</span></div>
+				<img src="img/portfolio_plan.png" alt="plan-room" class="portfolio__plan">
+				<div class="portfolio__tabs">
+					<div class="portfolio__tab"><img src="icons/portfolio/icon1.jpg" alt="room" class="portfolio__tab-icon"></div>
+					<div class="portfolio__tab"><img src="icons/portfolio/icon2.jpg" alt="room" class="portfolio__tab-icon"></div>
+					<div class="portfolio__tab"><img src="icons/portfolio/icon3.jpg" alt="room" class="portfolio__tab-icon"></div>
+				</div>
+			</div>
+			<div class="portfolio__slider">
+				<div class="portfolio__slider-img"><img class="portfolio__img" src="img/slider_main.jpg" alt="room"></div>
+				<div class="portfolio__navigation">
+					<div class="portfolio__circles">
+						<div class="portfolio__circle portfolio__circle_active"></div>
+						<div class="portfolio__circle"></div>
+						<div class="portfolio__circle"></div>
+						<div class="portfolio__circle"></div>
+					</div>
+					<div class="portfolio__arrows">
+						<div class="portfolio__arrow"><img src="icons/portfolio/left_arrow.png" alt="arrow"></div>
+						<div class="portfolio__arrow"><img src="icons/portfolio/right_arrow.png" alt="arrow"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="reviews" class="reviews">
+		<div class="reviews__wrapper">
+			<h1 class="title title_center">Відгуки</h1>
+			<h2 class="subtitle subtitle_center">Що про нас говорять<br> наші клієнти</h2>
+			<div class="reviews__review">
+				<div class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut eros at nunc venenatis varius ac ut nisl. Cras vulputate efficitur ligula, ac bibendum est placerat vel. Integer sit amet lectus non enim maximus varius sed non arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut eros at nunc venenatis varius ac ut nisl. Cras vulputate efficitur ligula, ac bibendum est placerat vel. Integer sit amet lectus non enim maximus varius sed non arcu. </div>
+				<div class="reviews__name">Елена Филонова, Львів</div>
+				<div class="reviews__quotes">“</div>
+			</div>
+			<div class="reviews__navigation">
+				<img src="icons/reviews/l_arrow.png" alt="arrow" class="reviews__arrow">
+				<div class="reviews__circles">
+					<div class="reviews__circle reviews__circle_active"></div>
+					<div class="reviews__circle"></div>
+					<div class="reviews__circle"></div>
+					<div class="reviews__circle"></div>
+				</div>
+				<img src="icons/reviews/r_arrow.png" alt="arrow" class="reviews__arrow">
+			</div>
+		</div>
+	</section>
+	<div id="feedback" class="feedback">
+		<div class="feedback__wrapper">
+			<h2 class="subtitle feedback__subtitle">Зв'яжіться з нами</h2>
+			<div class="feedback__descr">Залиште номер телефону, і ми зв'яжемося з вами на протязі 5 хвилин.</div>
+			<form action="#" class="feedback__form">
+				<input name="name" type="text" placeholder="Ім’я" class="feedback__input">
+				<input name="email" type="email" placeholder="E-mail" class="feedback__input">
+				<input name="message" type="text" placeholder="Ваше повідомлення..." class="feedback__input">
+				<button class="feedback__btn">Надіслати</button>
+			</form>
+		</div>
+	</div>
 	<script src="script.js"></script>
 </body>
 

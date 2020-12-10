@@ -1,3 +1,11 @@
+@media (max-width: 1400px) {
+    .portfolio {
+        &__proect {
+            padding-left: 100px;
+        }
+    }
+}
+
 @media (max-width: 1300px) {
     .container {
         width: 960px;
@@ -42,6 +50,22 @@
         }
         &__wrapper {
             justify-content: center;
+        }
+    }
+
+    .portfolio {
+        min-height: 700px;
+        &__slider {
+            width: 45%;
+        }
+        &__navigation {
+            padding: 0 10px;
+        }
+        &__descr {
+            width: 450px;
+        }
+        &__title {
+            margin-top: 80px;
         }
     }
 }
@@ -133,6 +157,19 @@
         }
     }
 
+    .portfolio {
+        &__proect {
+            padding-left: 20px;
+        }
+        &__title {
+            margin-top: 50px;
+        }
+        &__tab {
+            width: 50px;
+            height: 52px;
+        }
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -140,11 +177,18 @@
         width: 540px;
     }
 
+    .hamburger {
+        display: flex;
+    }
+
     .header {
         &__phone {
             &:first-child {
                 display: none;
-            }
+            }   
+        }
+        &__contacts{
+            position: fixed;
         }
         &__menu {
             width: 100%;
@@ -197,6 +241,46 @@
         }
         &__descr {
             font-size: 14px;
+        }
+    }
+
+    .portfolio {
+        min-height: 500px;
+        &__descr {
+            width: 300px;
+            font-size: 13px;
+            line-height: 19px;
+            margin-top: 10px;
+        }
+        &__plan {
+            display: none;
+        }
+        &__title {
+            margin-top: 20px;
+        }
+        &__deadline {
+            margin-top: 10px;
+        }
+    }
+
+    .reviews {
+        &__wrapper {
+            width: 540px;
+        }
+        &__review {
+            width: 100%;
+        }
+    }
+
+    .feedback {
+        &__wrapper {
+            width: 540px;
+        }
+        &__input {
+            width: 250px;
+            &:nth-child(3) {
+                width: 540px;
+            }
         }
     }
 
@@ -323,6 +407,47 @@
             margin-top: 0;
             padding-top: 10px;
             font-size: 16px;
+        }
+    }
+
+    .portfolio {
+        &__wrapper {
+            flex-direction: column;
+        }
+        &__slider, &__proect {
+            width: 100%;
+        }
+        &__descr {
+            width: 240px;
+        }
+        &__tabs {
+            top: 50px;
+        }
+    }
+
+    .reviews {
+        &__wrapper {
+            width: 100%;
+        }
+        &__review {
+            width: 100%;
+        }
+        &__quotes {
+            right: 10px;
+        }
+    }
+    .feedback {
+        &__wrapper {
+            width: 320px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        &__input {
+            width: 300px;
+            margin-bottom: 20px;
+            &:nth-child(3) {
+                width: 300px;
+            }
         }
     }
 }
