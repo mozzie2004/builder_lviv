@@ -40,15 +40,6 @@
         position: absolute;
         top: 54px;
     }
-    &__logo {
-        font-weight: 900;
-        font-size: 24px;
-        color: $main-color;
-        &:hover {
-            text-decoration: none;
-            color: $main-color;
-        }
-    }
     &__menu-list {
         list-style-type: none;
         width: 682px;
