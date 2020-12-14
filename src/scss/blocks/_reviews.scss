@@ -61,6 +61,9 @@
         display: flex;
         align-items: center;
     }
+    &__arrow {
+        cursor: pointer;
+    }
     &__circle {
         margin: 0 12px;
         width: 6px;
@@ -68,6 +71,7 @@
         left: 704px;
         background: rgba(196, 196, 196, 0.45);
         border-radius: 100%;
+        cursor: pointer;
         &_active {
             width: 9px;
             height: 9px;
