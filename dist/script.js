@@ -1739,126 +1739,218 @@ __webpack_require__.r(__webpack_exports__);
 
 function slider() {
   var tabs = document.querySelectorAll('.portfolio__tab'),
-      content = document.querySelectorAll('.portfolio__content'),
       img = document.querySelectorAll('.portfolio__slider-img'),
-      circles = document.querySelector('.portfolio__circles'),
+      portfolioContent = document.querySelectorAll('.portfolio__content'),
+      reviewsContent = document.querySelectorAll('.reviews__review'),
+      portfolioCircles = document.querySelector('.portfolio__circles'),
       reviewCircles = document.querySelector('.reviews__circles'),
-      reviews = document.querySelectorAll('.reviews__review');
+      leftReviewsArrow = document.querySelectorAll('.reviews__arrow')[0],
+      rightReviewsArrow = document.querySelectorAll('.reviews__arrow')[1],
+      leftPortfolioArrow = document.querySelectorAll('.portfolio__arrow')[0],
+      rightPortfolioArrow = document.querySelectorAll('.portfolio__arrow')[1];
+  var portfolioLength = portfolioContent.length,
+      reviewsLength = reviewsContent.length,
+      reviewsCircleClass = 'reviews__circle',
+      portfolioCircleClass = 'portfolio__circle';
+  var sectionReviews = {
+    content: reviewsContent,
+    circles: reviewCircles,
+    leftArrow: leftReviewsArrow,
+    rightArrow: rightReviewsArrow,
+    length: reviewsLength,
+    circleClass: reviewsCircleClass
+  };
+  var sectionPortfolio = {
+    content: portfolioContent,
+    circles: portfolioCircles,
+    leftArrow: leftPortfolioArrow,
+    rightArrow: rightPortfolioArrow,
+    tabs: tabs,
+    img: img,
+    length: portfolioLength,
+    circleClass: portfolioCircleClass
+  };
 
-  function addCircle(className, parent, content) {
+  function addCircle(_ref) {
+    var circleClass = _ref.circleClass,
+        circles = _ref.circles,
+        content = _ref.content;
+
     for (var i = 0; i < content.length; i++) {
-      var _circle = document.createElement('div');
-
-      _circle.classList.add(className);
-
-      parent.append(_circle);
+      var circleDiv = document.createElement('div');
+      circleDiv.classList.add(circleClass);
+      circles.append(circleDiv);
     }
   }
 
-  addCircle('portfolio__circle', circles, img);
-  addCircle('reviews__circle', reviewCircles, reviews);
-  var circle = document.querySelectorAll('.portfolio__circle'),
-      reviewCircle = document.querySelectorAll('.reviews__circle');
-  reviewCircle[0].classList.add('reviews__circle_active');
-  circle[0].classList.add('portfolio__circle_active');
-  var activeSlide = 0;
-  var reviewAcyiveSlide = 0;
+  addCircle(sectionPortfolio);
+  addCircle(sectionReviews);
+  sectionPortfolio.circle = document.querySelectorAll('.portfolio__circle');
+  sectionReviews.circle = document.querySelectorAll('.reviews__circle');
+  sectionPortfolio.circle[0].classList.add('portfolio__circle_active');
+  sectionReviews.circle[0].classList.add('reviews__circle_active');
+  var curentPortfolioSlide = 0;
+  var curentReviewsSlide = 0;
 
-  function tabTogle(triger) {
-    triger.forEach(function (item, i) {
-      item.addEventListener('click', function () {
-        content.forEach(function (cont) {
-          cont.classList.remove('show');
-          cont.classList.add('hide');
-        });
-        img.forEach(function (sliderImg) {
-          sliderImg.classList.remove('show');
-          sliderImg.classList.add('hide');
-        });
-        circle.forEach(function (sliderCircle) {
-          sliderCircle.classList.remove('portfolio__circle_active');
-        });
-        content[i].classList.add('show');
-        content[i].classList.remove('hide');
-        img[i].classList.add('show');
-        img[i].classList.remove('hide');
-        circle[i].classList.add('portfolio__circle_active');
-        activeSlide = i;
+  function tabTogle(_ref2, i) {
+    var circle = _ref2.circle,
+        tabs = _ref2.tabs,
+        content = _ref2.content,
+        img = _ref2.img,
+        circleClass = _ref2.circleClass;
+
+    if (tabs) {
+      img.forEach(function (sliderImg) {
+        sliderImg.classList.remove('show');
+        sliderImg.classList.add('hide');
       });
+      img[i].classList.add('show');
+      img[i].classList.remove('hide');
+      curentPortfolioSlide = i;
+    } else {
+      curentReviewsSlide = i;
+    }
+
+    content.forEach(function (cont) {
+      cont.classList.remove('show');
+      cont.classList.add('hide');
+    });
+    circle.forEach(function (sliderCircle) {
+      sliderCircle.classList.remove("".concat(circleClass, "_active"));
+    });
+    content[i].classList.add('show');
+    content[i].classList.remove('hide');
+    circle[i].classList.add("".concat(circleClass, "_active"));
+  }
+
+  tabs.forEach(function (item, i) {
+    item.addEventListener('click', function () {
+      tabTogle(sectionPortfolio, i);
+    });
+  });
+  sectionPortfolio.circle.forEach(function (item, i) {
+    item.addEventListener('click', function () {
+      tabTogle(sectionPortfolio, i);
+    });
+  });
+  sectionReviews.circle.forEach(function (item, i) {
+    item.addEventListener('click', function () {
+      tabTogle(sectionReviews, i);
+    });
+  });
+  var curentSlide = 0;
+
+  function clickLeft(_ref3) {
+    var leftArrow = _ref3.leftArrow,
+        length = _ref3.length,
+        content = _ref3.content,
+        img = _ref3.img,
+        circle = _ref3.circle,
+        circleClass = _ref3.circleClass;
+    leftArrow.addEventListener('click', function (e) {
+      if (e.target.classList.contains('reviews__arrow')) {
+        curentSlide = curentReviewsSlide;
+      } else {
+        curentSlide = curentPortfolioSlide;
+      }
+
+      if (img) {
+        img[curentSlide].classList.remove('show');
+        img[curentSlide].classList.add('hide');
+      }
+
+      content[curentSlide].classList.remove('show');
+      content[curentSlide].classList.add('hide');
+      circle[curentSlide].classList.remove("".concat(circleClass, "_active"));
+
+      if (curentSlide === 0) {
+        content[length - 1].classList.add('show');
+        content[length - 1].classList.remove('hide');
+
+        if (img) {
+          img[length - 1].classList.add('show');
+          img[length - 1].classList.remove('hide');
+          curentPortfolioSlide = length - 1;
+        }
+
+        circle[length - 1].classList.add("".concat(circleClass, "_active"));
+        curentSlide = length - 1;
+        curentReviewsSlide = length - 1;
+      } else {
+        content[curentSlide - 1].classList.add('show');
+        content[curentSlide - 1].classList.remove('hide');
+
+        if (img) {
+          img[curentSlide - 1].classList.add('show');
+          img[curentSlide - 1].classList.remove('hide');
+          curentPortfolioSlide--;
+        }
+
+        circle[curentSlide - 1].classList.add("".concat(circleClass, "_active"));
+        curentSlide--;
+        curentReviewsSlide--;
+      }
     });
   }
 
-  tabTogle(tabs);
-  tabTogle(circle);
-  changeActive(reviewCircle, reviews, 'reviews');
+  clickLeft(sectionReviews);
+  clickLeft(sectionPortfolio);
 
-  function changeActive(triger, sliderContent, selectorActive) {
-    triger.forEach(function (item, i) {
-      item.addEventListener('click', function () {
-        triger.forEach(function (sliderCircle) {
-          sliderCircle.classList.remove("".concat(selectorActive, "__circle_active"));
-        });
-        sliderContent.forEach(function (rew) {
-          rew.classList.remove('show');
-          rew.classList.add('hide');
-        });
-        triger[i].classList.add("".concat(selectorActive, "__circle_active"));
-        sliderContent[i].classList.add('show');
-        sliderContent[i].classList.remove('hide');
-      });
+  function clicRight(_ref4) {
+    var rightArrow = _ref4.rightArrow,
+        length = _ref4.length,
+        content = _ref4.content,
+        img = _ref4.img,
+        circle = _ref4.circle,
+        circleClass = _ref4.circleClass;
+    rightArrow.addEventListener('click', function (e) {
+      if (e.target.classList.contains('reviews__arrow')) {
+        curentSlide = curentReviewsSlide;
+      } else {
+        curentSlide = curentPortfolioSlide;
+      }
+
+      if (img) {
+        img[curentSlide].classList.remove('show');
+        img[curentSlide].classList.add('hide');
+      }
+
+      content[curentSlide].classList.remove('show');
+      content[curentSlide].classList.add('hide');
+      circle[curentSlide].classList.remove("".concat(circleClass, "_active"));
+
+      if (curentSlide === length - 1) {
+        content[0].classList.add('show');
+        content[0].classList.remove('hide');
+
+        if (img) {
+          img[0].classList.add('show');
+          img[0].classList.remove('hide');
+          curentPortfolioSlide = 0;
+        }
+
+        circle[0].classList.add("".concat(circleClass, "_active"));
+        curentSlide = 0;
+        curentReviewsSlide = 0;
+      } else {
+        content[curentSlide + 1].classList.add('show');
+        content[curentSlide + 1].classList.remove('hide');
+
+        if (img) {
+          img[curentSlide + 1].classList.add('show');
+          img[curentSlide + 1].classList.remove('hide');
+          curentPortfolioSlide++;
+        }
+
+        circle[curentSlide + 1].classList.add("".concat(circleClass, "_active"));
+        curentSlide++;
+        curentReviewsSlide++;
+      }
     });
   }
 
-  var arrow = document.querySelectorAll('.portfolio__arrow'),
-      leftArrow = arrow[0],
-      rightArrow = arrow[1];
-
-  function removeActive() {
-    content[activeSlide].classList.remove('show');
-    content[activeSlide].classList.add('hide');
-    img[activeSlide].classList.remove('show');
-    img[activeSlide].classList.add('hide');
-    circle[activeSlide].classList.remove('portfolio__circle_active');
-  }
-
-  leftArrow.addEventListener('click', function () {
-    removeActive();
-
-    if (activeSlide === 0) {
-      content[content.length - 1].classList.add('show');
-      content[content.length - 1].classList.remove('hide');
-      img[content.length - 1].classList.add('show');
-      img[content.length - 1].classList.remove('hide');
-      circle[content.length - 1].classList.add('portfolio__circle_active');
-      activeSlide = content.length - 1;
-    } else {
-      content[activeSlide - 1].classList.add('show');
-      content[activeSlide - 1].classList.remove('hide');
-      img[activeSlide - 1].classList.add('show');
-      img[activeSlide - 1].classList.remove('hide');
-      circle[activeSlide - 1].classList.add('portfolio__circle_active');
-      activeSlide--;
-    }
-  });
-  rightArrow.addEventListener('click', function () {
-    removeActive();
-
-    if (activeSlide === content.length - 1) {
-      content[0].classList.add('show');
-      content[0].classList.remove('hide');
-      img[0].classList.add('show');
-      img[0].classList.remove('hide');
-      circle[0].classList.add('portfolio__circle_active');
-      activeSlide = 0;
-    } else {
-      content[activeSlide + 1].classList.add('show');
-      content[activeSlide + 1].classList.remove('hide');
-      img[activeSlide + 1].classList.add('show');
-      img[activeSlide + 1].classList.remove('hide');
-      circle[activeSlide + 1].classList.add('portfolio__circle_active');
-      activeSlide++;
-    }
-  });
+  clicRight(sectionReviews);
+  clicRight(sectionPortfolio);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (slider);
